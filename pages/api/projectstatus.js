@@ -10,8 +10,8 @@ export default async (req, res) => {
     const database = client.db('dream');
     const sessionsCollection = database.collection('sessions');
     const requestsCollection = database.collection('requests');
-    const constructorCollection = database.collection('constructor');
     const buildrequestCollection = database.collection('buildrequest');
+    const constructorCollection = database.collection('constructor');
 
     if (req.method === 'GET') {
       const sessionId = req.headers.authorization;
@@ -31,12 +31,12 @@ export default async (req, res) => {
       const userId = session.userId;
 
       const acceptedProjects = await requestsCollection
-        .find({ userId, status: 'accepted' })
+        .find({ userId: userId, status: 'accepted' })
         .toArray();
 
       const enrichedAcceptedProjects = await Promise.all(acceptedProjects.map(async (project) => {
         const buildRequest = await buildrequestCollection.findOne({ _id: project.buildRequestId });
-        const constructor = await constructorCollection.findOne({ _id: buildRequest.constructorId });
+        const constructor = await constructorCollection.findOne({ _id: project.constructorId });
 
         return {
           ...project,

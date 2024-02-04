@@ -92,7 +92,7 @@ export default async (req, res) => {
         );
         result1 = await requestsCollection.updateOne(
           { buildRequestId: obj, constructorId: userId },
-          { $set: { status: status, active: false, isread: false } }
+          { $set: { status: status, active: false, isread: false, progress:0 } }
         );
       }
 
