@@ -1,0 +1,65 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f7f4f4 80%, #cac3c3, #000000);
+    height: 750px;
+  }
+  
+  header {
+    background: linear-gradient(to right, #ffffff, #a69e9e, #fafafa);
+    color: #0c0c0c;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+  }
+  
+  img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  header a {
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    width: 45%; /* Adjust as needed */
+  }
+  
+  input {
+    width: 75%; /* Adjust as needed */
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ddd;
+  }
+  
+  input[type="checkbox"] {
+    width: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    border: 2px solid black;
+    background: linear-gradient(to bottom, #31444a, #f9f4f4);
+    margin-left: 55px;
+    width: 150px;
+  }

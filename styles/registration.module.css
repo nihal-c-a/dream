@@ -1,0 +1,71 @@
+/* dream/styles/clientregistercss.module.css */
+.highlight{
+  font-weight: bold;
+   color:black;
+   text-decoration: underline;
+}
+.nonhighlight{
+color: grey;
+}
+.nonhighlight:hover{
+color:rgb(5, 19, 126);
+}
+
+.container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 25px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+  display: flex;
+ 
+}
+
+
+.terms {
+  color: rgb(58, 53, 53);
+  font-size: 20px;
+  margin-top: 10px;
+  
+}
+
+
+.registerBtn:hover {
+  background: linear-gradient(to bottom, #f9f4f4, #31444a);
+  font-size: 21px;
+  color: rgb(30, 136, 28);
+}
+
+.resetBtn:hover {
+  background: linear-gradient(to bottom, #f9f4f4, #31444a);
+  font-size: 21px;
+  color: rgb(0, 0, 255);
+}
+
+.cancelBtn:hover {
+  background: linear-gradient(to bottom, #f9f4f4, #31444a);
+  font-size: 21px;
+  color: red;
+}
+
+.loginLink {
+  text-align: center;
+}
+
+.loginLink a {
+  color: #252f35;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.loginLink a:hover {
+  color: black;
+  font-weight:bold;
+}

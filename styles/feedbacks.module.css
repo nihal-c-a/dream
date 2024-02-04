@@ -1,0 +1,30 @@
+/* styles/constructorfeedback.module.css */
+.feedbackContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feedbackCard {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.feedbackCard:hover {
+  transform: translateY(-5px);
+}
+
+/* h2 {
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #007bff;
+}
+
+p {
+  font-style: italic;
+} */

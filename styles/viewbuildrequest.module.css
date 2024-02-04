@@ -1,0 +1,104 @@
+.viewBuildRequestContainer {
+  /* background: linear-gradient(to bottom, #f7f4f4 , #eae2e2, #c7c4c4);  */
+  background: repeating-radial-gradient(circle, #d2f7d2, #f0f3f9 );
+  margin: 0;
+  height: 700px;
+  }
+  
+
+  .backbutton {
+    background: linear-gradient(to right, #41adb5, #e7e6f2, #409fa6); /* Gradient background */
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    color: #fff;
+    padding: 15px; /* Increased padding for better appearance */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    font-size: 17px; /* Increased font size */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    color: black;
+    margin-top:25px;
+    margin-left:25px;
+  }
+  .backbutton:hover {
+    background: linear-gradient(to right, #e7e6f2,#409fa6, #e7e6f2);
+    letter-spacing: 1px;
+    color: #270676;
+  }
+
+  .heading{
+   
+    text-align: center;
+    text-decoration:underline; /* Add underline */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add shadow effect */
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    margin-top: -40PX;
+  }
+  .buildRequestCardsContainer{
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+   
+  }
+
+
+  .buildRequestCard {
+      /* display: flex; */
+      flex-direction: column;
+      justify-content: center; 
+      border: 2px solid #aec3f8;
+      border-radius: 10px;
+      box-shadow: 15px 10px 20px rgba(139, 133, 133, 0.5);
+      margin: 15px;
+      max-width: 300px; /* Set a maximum width for better readability */
+      padding: 20px;
+      background: linear-gradient(to bottom right, #c8dbf6, #fadcfa);
+      font-size: 18px;
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  }
+  
+  .buildRequestCard:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .primarybutton {
+    
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 5px;
+    cursor: pointer;
+    border-radius:5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  } 
+  .primarybutton:hover{
+    border: 1px solid rgb(4, 54, 4);
+    color: rgb(9, 9, 9);
+  }
+
+  .deletebutton{
+    background-color: #f1725c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius:5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  .deletebutton:hover{
+    border: 1px solid rgb(106, 15, 9);
+    color: rgb(9, 9, 9);
+  }
