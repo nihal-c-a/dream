@@ -1,0 +1,39 @@
+/* styles/clientnotifications.module.css */
+
+.notificationContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.notificationCard {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.notificationCard h2 {
+  color: #333;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.notificationCard p {
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.notificationCard button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.notificationCard button:hover {
+  background-color: #45a049;
+}

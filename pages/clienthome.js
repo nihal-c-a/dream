@@ -1,28 +1,28 @@
 // dream/pages/clienthome.js
-import React, { useState, useEffect } from 'react';
-import styles from '../styles/clienthome.module.css'; // Add your CSS file
-import '../styles/globalclienthome.css';
-import Link from 'next/link';
+import React, { useState, useEffect } from "react";
+import styles from "../styles/clienthome.module.css"; // Add your CSS file
+import "../styles/globalclienthome.css";
+import Link from "next/link";
 
 const ClientHomePage = () => {
-  const [clientName, setClientName] = useState('');
+  const [clientName, setClientName] = useState("");
 
   useEffect(() => {
     // Fetch client name from backend
     const fetchClientName = async () => {
       try {
-        const sessionId = sessionStorage.getItem('sessionId');
+        const sessionId = sessionStorage.getItem("sessionId");
 
         if (!sessionId) {
-          console.error('Session ID is missing.');
+          console.error("Session ID is missing.");
           return;
         }
 
-        const response = await fetch('/api/clienthome', {
-          method: 'GET',
+        const response = await fetch("/api/clienthome", {
+          method: "GET",
           headers: {
-            'Content-Type': 'application/json',
-            'Authorization': sessionId,
+            "Content-Type": "application/json",
+            Authorization: sessionId,
           },
         });
 
@@ -31,10 +31,10 @@ const ClientHomePage = () => {
         if (response.ok) {
           setClientName(data.clientName);
         } else {
-          console.error('Failed to fetch client name:', data.message);
+          console.error("Failed to fetch client name:", data.message);
         }
       } catch (error) {
-        console.error('An error occurred during API call:', error);
+        console.error("An error occurred during API call:", error);
       }
     };
 
@@ -47,7 +47,7 @@ const ClientHomePage = () => {
       From blueprint to bliss we're here to turn your dream home into reality`}</h1>
       <div className={styles.container}>
         <div className={styles.card}>
-          <Link href="/buildrequest"> 
+          <Link href="/buildrequest">
             <img src="/pic/house.png" alt="Build Request" />
             <h3>Build Request</h3>
             <p>Submit your construction project details.</p>
@@ -71,7 +71,7 @@ const ClientHomePage = () => {
         </div>
 
         <div className={styles.card}>
-          <Link href="/clientnotification">
+          <Link href="/clientnotifications">
             <img src="/pic/notification.png" alt="Notifications" />
             <h3>Notifications</h3>
             <p>Stay updated with important notifications.</p>
@@ -87,7 +87,7 @@ const ClientHomePage = () => {
         </div>
 
         <div className={styles.card}>
-          <Link href='/'>
+          <Link href="/">
             <img src="/pic/logout.png" alt="Logout" />
             <h3>Logout</h3>
             <p>Sign out from your account.</p>

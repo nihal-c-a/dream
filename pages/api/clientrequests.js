@@ -27,8 +27,13 @@ export default async (req, res) => {
       const constructorId = session.userId;
 
       const requestList = await requestsCollection
-        .find({ status: "requested", constructorId: constructorId })
+        .find({
+          status: "requested",
+          constructorId: constructorId,
+          active: true,
+        })
         .toArray();
+      //idaralli status:requested buildrequest collection inda bark,constructorid request collection inda bark..idreadu true adre matra display
 
       const enrichedRequestList = await Promise.all(
         requestList.map(async (request) => {
@@ -48,7 +53,6 @@ export default async (req, res) => {
           };
         })
       );
-      //illinda nale start vuild request id first hidki kelag criteria set madk
 
       res.status(200).json({ requests: enrichedRequestList });
     } else if (req.method === "POST") {
@@ -72,23 +76,23 @@ export default async (req, res) => {
 
       // Update the status in the database
       if (status === "rejected") {
-        result = await buildrequestCollection.updateOne(
-          { _id: obj, constructorId: userId },
-          { $set: { status } }
-        );
+        // result = await buildrequestCollection.updateOne(
+        //   { _id: obj, constructorId: userId },
+        //   { $set: { status } },
+        // );
+        // result1 = await requestsCollection.deleteOne({ constructorId: userId,buildRequestId: obj });
         result = await requestsCollection.updateOne(
-          { _id: obj, constructorId: userId },
-          { $set: { status } }
+          { buildRequestId: obj, constructorId: userId },
+          { $set: { status: status, active: false, isread: false } }
         );
       } else {
-        result1 = await requestsCollection.deleteOne({ buildRequestId: obj });
         result = await buildrequestCollection.updateOne(
           { _id: obj },
-          { $set: { status } }
+          { $set: { status, constructorId: userId } }
         );
         result1 = await requestsCollection.updateOne(
           { buildRequestId: obj, constructorId: userId },
-          { $set: { status: status } }
+          { $set: { status: status, active: false, isread: false } }
         );
       }
 
