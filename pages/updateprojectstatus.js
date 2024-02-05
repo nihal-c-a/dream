@@ -1,4 +1,3 @@
-// dream/pages/projectstatus.js
 import React, { useEffect, useState, useRef } from 'react';
 import styles from '../styles/projectstatus.module.css';
 import Chart from 'chart.js/auto';
@@ -16,7 +15,7 @@ const ProjectStatus = () => {
           return;
         }
 
-        const response = await fetch('/api/projectstatus', {
+        const response = await fetch('/api/updateprojectstatus', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -40,10 +39,59 @@ const ProjectStatus = () => {
     fetchProjects();
   }, []);
 
+  const handleProgressChange = (projectId, newProgress) => {
+    // Update the progress in the local state
+    setAcceptedProjects((prevProjects) =>
+      prevProjects.map((project) =>
+        project._id === projectId ? { ...project, progress: newProgress } : project
+      )
+    );
+  };
+
+  const handleSubmitProgress = async (projectId, progress) => {
+    try {
+      const sessionId = sessionStorage.getItem('sessionId');
+      
+      if (!sessionId) {
+        
+        console.error('Session ID is missing.');
+        return;
+      }
+
+      const response = await fetch('/api/updateprojectstatus', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': sessionId,
+        },
+        body: JSON.stringify({ projectId, progress }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(data.message);
+        console.log('Progress updated successfully:', data.message);
+        // Optionally, you can update the state to reflect the change
+      } else {
+        console.error('Failed to update progress:', data.message);
+      }
+    } catch (error) {
+      console.error('An error occurred during API call:', error);
+    }
+  };
+
   useEffect(() => {
     if (acceptedProjects.length > 0) {
       chartRefs.current = acceptedProjects.map((project) => {
         const ctx = document.getElementById(`chart-${project._id}`);
+        const existingChart = Chart.getChart(ctx);
+
+        // Destroy the existing chart if it exists
+        if (existingChart) {
+          existingChart.destroy();
+        }
+
         return new Chart(ctx, {
           type: 'pie',
           data: {
@@ -83,10 +131,20 @@ const ProjectStatus = () => {
             <div className={styles.chartContainer}>
               <canvas id={`chart-${project._id}`} width='200' height='200'></canvas>
             </div>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={project.progress}
+              onChange={(e) => handleProgressChange(project._id, e.target.value)}
+            />
+            <button onClick={() => handleSubmitProgress(project._id, project.progress)}>
+              Update
+            </button>
             <p>Project Area: {project.projectArea}</p>
             <p>Project Timeline: {project.projectTimeline}</p>
             <p>Budget Range: {project.budgetRange}</p>
-            <p>Constructor: {project.constructorName}</p>
+            <p>Client: {project.constructorName}</p>
           </div>
         ))
       ) : (
