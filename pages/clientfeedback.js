@@ -71,11 +71,12 @@ const ClientFeedbackPage = () => {
 
   return (
     <div className={styles.clientFeedbackContainer}>
-      <h1>Client Feedback Page</h1>
+      <button className={styles.backbutton} onClick={() => (window.location.href = '/clienthome')}>Back</button>
+      <h1 className={styles.heading}>Client Feedback Page</h1>
 
       {/* Back button as a button */}
-      <button onClick={() => router.push('/clienthome')}>Back to Client Home</button>
-
+      
+      
       <form className={styles.feedbackForm} onSubmit={handleSubmit}>
         <div>
           <label>Choose Constructor:</label>

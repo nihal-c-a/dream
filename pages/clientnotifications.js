@@ -73,7 +73,8 @@ const ClientNotifications = () => {
 
   return (
     <div className={styles.notificationContainer}>
-      <h1>Client Notifications</h1>
+      <button className={styles.backbutton} onClick={() => (window.location.href = '/clienthome')}>Back</button>
+      <h1 className={styles.heading}>Client Notifications</h1>
 
       {notifications.length > 0 ? (
         notifications.map((notification) => (

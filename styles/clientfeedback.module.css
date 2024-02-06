@@ -16,3 +16,32 @@ display: flex;
 justify-content:space-around;
 margin-top: 20px; /* Adjust the margin for spacing */
 }
+.backbutton {
+  background: linear-gradient(to right, #52116e, #e7e6f2,  #52116e); /* Gradient background */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  color: #fff;
+  padding: 15px; /* Increased padding for better appearance */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100px;
+  font-size: 17px; /* Increased font size */
+  font-weight: bold; /* Bold text */
+  text-transform: uppercase; /* Uppercase text */
+  color: black;
+  margin-top:25px;
+  margin-left:25px;
+}
+.backbutton:hover {
+  background: linear-gradient(to right, #e7e6f2,#be44f3, #e7e6f2);
+  letter-spacing: 1px;
+  color: #270676;
+}
+.heading {
+  text-align: center;
+  text-decoration:underline; /* Add underline */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add shadow effect */
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 40px;
+  margin-top: -40PX;
+} 
