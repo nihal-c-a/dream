@@ -1,4 +1,4 @@
-// dream/pages/clienthomegi&&&&&t commit.js
+// dream/pages/clienthome.js
 import React, { useState, useEffect } from "react";
 import styles from "../styles/clienthome.module.css"; // Add your CSS file
 import "../styles/globalclienthome.css";
