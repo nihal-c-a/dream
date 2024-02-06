@@ -78,8 +78,8 @@ const ConstructorHomePage = () => {
         </div>
 
         <div className={styles.card}>
-          <Link href="/managemyprojects">
-            <img src="/pic/projects.png" alt="Manage My Projects" />
+          <Link href="/manage project">
+            <img src="/pic/manage project.png" alt="Manage My Projects" />
             <h3>Manage My Projects</h3>
             <p>View and manage your construction projects.</p>
           </Link>

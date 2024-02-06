@@ -3,7 +3,7 @@ import { MongoClient } from 'mongodb';
 
 const { ObjectId } = require('mongodb');
 
-const uri = 'mongodb://localhost:2017';
+const uri = 'mongodb://localhost:27017';
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 export default async (req, res) => {
