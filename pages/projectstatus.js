@@ -75,12 +75,16 @@ const ProjectStatus = () => {
   }, [acceptedProjects]);
 
   return (
+    
     <div className={styles.container}>
+      <button className={styles.backbutton} onClick={() => (window.location.href = '/clienthome')}>Back</button>
+     
+     <div className={styles.cardcontainer}>
       {acceptedProjects.length > 0 ? (
         acceptedProjects.map((project, index) => (
           <div key={project._id} className={styles.card}>
             <h2>{project.projectName}</h2>
-            <div className={styles.chartContainer}>
+            <div className={styles.clientchartContainer}>
               <canvas id={`chart-${project._id}`} width='200' height='200'></canvas>
             </div>
             <p>Project Area: {project.projectArea}</p>
@@ -92,6 +96,7 @@ const ProjectStatus = () => {
       ) : (
         <p>No projects available.</p>
       )}
+    </div>
     </div>
   );
 };

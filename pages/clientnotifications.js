@@ -28,6 +28,7 @@ const ClientNotifications = () => {
           console.log(
             "Notifications fetched successfully:",
             data.notifications
+           
           );
           setNotifications(data.notifications);
         } else {
@@ -63,6 +64,7 @@ const ClientNotifications = () => {
       if (response.ok) {
         console.log("Notification marked as read successfully:", data.message);
         // Optionally, you can update the state to reflect the change
+        window.location.href = '/clientnotifications';
       } else {
         console.error("Failed to mark notification as read:", data.message);
       }
@@ -75,24 +77,25 @@ const ClientNotifications = () => {
     <div className={styles.notificationContainer}>
       <button className={styles.backbutton} onClick={() => (window.location.href = '/clienthome')}>Back</button>
       <h1 className={styles.heading}>Client Notifications</h1>
-
-      {notifications.length > 0 ? (
-        notifications.map((notification) => (
-          <div key={notification._id} className={styles.notificationCard}>
-            <h2>{`Constructor: ${notification.constructorName}`}</h2>
-            <p>{`BuildRequest: ${notification.buildRequestName}`}</p>
-            <p>{`Status: ${notification.status}`}</p>
-            {!notification.isRead && (
-              <button onClick={() => markAsRead(notification._id)}>
-                Mark as Read
-              </button>
-            )}
-          </div>
-        ))
-      ) : (
-        <p>No notifications available.</p>
-      )}
+      <div className={styles.cardcontainer}>
+        {notifications.length > 0 ? (
+          notifications.map((notification) => (
+            <div key={notification._id} className={styles.notificationCard}>
+              <h3>{`Constructor: ${notification.constructorName}`}</h3>
+              <p>{`Project Name: ${notification.buildRequestName}`}</p>
+              <p>{`Status: ${notification.status}`}</p>
+              {!notification.isRead && (
+                <button onClick={() => markAsRead(notification._id)}>
+                  Mark as Read
+                </button>
+              )}
+            </div>
+          ))
+        ) : (
+          <p>No notifications available.</p>
+        )}
     </div>
+  </div>
   );
 };
 

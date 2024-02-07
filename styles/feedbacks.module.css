@@ -3,7 +3,6 @@
   background: repeating-radial-gradient(circle, #faede6, #f6f7fa );
   margin: 0;
   height: 1000px;
- 
   
 }
 .backbutton {
@@ -62,7 +61,6 @@
   /* border: 1px solid #ddd; */
   cursor: pointer;
   transition: transform 0.3s;
-  
   
 }
 .profileContainer {

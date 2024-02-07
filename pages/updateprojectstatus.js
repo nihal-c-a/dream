@@ -47,7 +47,7 @@ const ProjectStatus = () => {
       )
     );
   };
-
+ 
   const handleSubmitProgress = async (projectId, progress) => {
     try {
       const sessionId = sessionStorage.getItem('sessionId');
@@ -124,6 +124,9 @@ const ProjectStatus = () => {
 
   return (
     <div className={styles.container}>
+      <button className={styles.backbutton} onClick={() => (window.location.href = '/constructorhome')}>Back</button>
+     
+      <div className={styles.cardcontainer}>
       {acceptedProjects.length > 0 ? (
         acceptedProjects.map((project, index) => (
           <div key={project._id} className={styles.card}>
@@ -131,14 +134,14 @@ const ProjectStatus = () => {
             <div className={styles.chartContainer}>
               <canvas id={`chart-${project._id}`} width='200' height='200'></canvas>
             </div>
-            <input
+            <input className={styles.range}
               type="range"
               min="0"
               max="100"
               value={project.progress}
               onChange={(e) => handleProgressChange(project._id, e.target.value)}
             />
-            <button onClick={() => handleSubmitProgress(project._id, project.progress)}>
+            <button className={styles.updatebutton} onClick={() => handleSubmitProgress(project._id, project.progress)}>
               Update
             </button>
             <p>Project Area: {project.projectArea}</p>
@@ -150,6 +153,7 @@ const ProjectStatus = () => {
       ) : (
         <p>No projects available.</p>
       )}
+    </div>
     </div>
   );
 };
