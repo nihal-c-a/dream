@@ -66,6 +66,7 @@
   /* border: 1px solid #ddd; */
   cursor: pointer;
   transition: transform 0.3s;
+  text-align: center;
  
 }
 .notificationCard:hover {
@@ -86,6 +87,7 @@
 }
 
 .notificationCard button {
+  
   background-color: #6bc96e;
   color: rgb(255, 255, 255);
   border: none;
@@ -94,7 +96,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 25px;
+  margin: 4px 0px;
   cursor: pointer;
   border-radius:5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);

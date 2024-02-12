@@ -18,22 +18,22 @@ export default async (req, res) => {
 
     if (req.method === "GET") {
       const sessionId = req.headers.authorization;
-
       if (!sessionId) {
         res.status(401).json({ message: "Unauthorized" });
         return;
       }
 
       const session = await sessionsCollection.findOne({ sessionId });
+     
 
       if (!session) {
         res.status(401).json({ message: "Unauthorized" });
         return;
       }
 
-      const userId = session.Id;
+      const userId = session.userId;
       const notificationList = await requestsCollection
-        .find({ usesrId: userId, isread: false, active: false })
+        .find({ userId: userId, isread: false, active: false })
         .toArray();
 
       const enrichedNotificationList = await Promise.all(

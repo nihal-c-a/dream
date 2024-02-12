@@ -127,8 +127,8 @@ const ViewConstructorPage = () => {
           <h3>Feedback:</h3>
           {selectedConstructor1.feedback && Array.isArray(selectedConstructor1.feedback) && selectedConstructor1.feedback.length > 0 ? (
             selectedConstructor1.feedback.map((feedback) => (
-              <div key={feedback._id}>
-                <p>{`Experience: ${feedback.experience}`}</p>
+              <div key={feedback._id}  className={styles.feedbackContainer}>
+                <p>{` ${feedback.experience}`}</p>
                 <p>{`Rating: ${feedback.rating}`}</p>
               </div>
             ))

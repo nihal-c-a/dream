@@ -72,6 +72,7 @@ const ProjectStatus = () => {
       if (response.ok) {
         alert(data.message);
         console.log('Progress updated successfully:', data.message);
+        window.location.href = '/constructorhome'
         // Optionally, you can update the state to reflect the change
       } else {
         console.error('Failed to update progress:', data.message);

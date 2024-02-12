@@ -18,7 +18,7 @@ export default async (req, res) => {
 
     if (req.method === "GET") {
       const sessionId = req.headers.authorization;
-
+      
       if (!sessionId) {
         res.status(401).json({ message: "Unauthorized" });
         return;
